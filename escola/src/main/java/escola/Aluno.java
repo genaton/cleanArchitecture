@@ -3,10 +3,12 @@
 package escola;
 
 public class Aluno {
+
+    // esta classe eh considerada ENTIDADE pois possui caracteristica unica como o cpf por exemplo
     
-    private String cpf; // segue padrao entidade pois eh um atributo unico
+    private CPF cpf; // segue padrao entidade pois eh um atributo unico
     private String nome;
-    private Email email; // desafio criar uma classe email
+    private Email email; 
 
 
 
