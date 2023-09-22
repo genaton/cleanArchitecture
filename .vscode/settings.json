@@ -1,0 +1,4 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "boot-java.scan-java-test-sources.on": true
+}
