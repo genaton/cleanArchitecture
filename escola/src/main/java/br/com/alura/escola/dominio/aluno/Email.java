@@ -1,4 +1,4 @@
-package escola;
+package br.com.alura.escola.dominio.aluno;
 
 public class Email {
         //esta classe é considerada VALUE OBJECT pois nao tem caracteristicas unicas

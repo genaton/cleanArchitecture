@@ -3,3 +3,44 @@ Qual a diferença entre uma Entidade e um VO (Value Object)?
 Entidades possuem uma identidade única, enquanto VOs são considerados iguais, se todos os seus atributos tiverem valores iguais.
 
 PARA SABER MAIS: https://martinfowler.com/bliki/ValueObject.html
+https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html
+
+
+Recaptulando: Onion Architecture, que é essa arquitetura em cebola, em que você tem as várias camadas.
+
+Hexagonal Architecture, a arquitetura hexagonal. E é o mesmo esquema, o hexágono amarelo no meio representa a aplicação, as regras de negócio. E por fora tem as camadas de comunicação com o mundo externo, com o banco de dados, com a interface com o usuário, enfim, com os detalhes técnicos.
+
+Clean Architecture, que foi tentar condensar esses modelos de arquitetura. E o Clean Architecture segue esse mesmo princípio de você isolar o domínio da aplicação.
+
+NO CONTEXTO DESTA AULA O CLEAN ARCHITECTURE FOI SIMPLIFICADO PARA 3 CAMADAS APENAS : DOMÍNIO (CENTRO), APLICAÇÃO (SEGUNDA) E INFRAESTRUTURA  (TERCEIRA E MAIS EXTERNA).
+
+ O domínio, onde tem as regras de negócio e toda parte que diz respeito ao negócio em si está centralizada.
+
+ A aplicacao é a camada que vai ter os fluxos de execução da aplicação. Então seria equivalente àquela camada de Use Cases do Clean Architecture. Aqui é onde vai ter a coordenação de execução dessas regras de negócio. Vamos ter código que vai fazer e executar esse fluxo de regras de negócio.
+
+ A camada de aplicação só vai coordenar a execução das regras de negocios que estam na cada Dominio.
+
+ A nossa aplicação vai precisar de detalhes de infraestrutura.
+ Por exemplo, a parte web, se for uma aplicação web, com interface gráfica com o usuário; a parte de persistência com banco de dados; a parte de logging; enfim. Toda essa parte técnica, esses detalhes de infraestrutura onde colocamos frameworks, bibliotecas e todo aquele código que é Parafernália, digamos assim, vai ficar na camada de infraestrutura.
+
+IMPORTANTE O FLUXO DE ACESSO EH SEMPRE DE FORA PARA DENTRO
+ 
+
+PARA SABER MAIS Domain Driven Design
+Ao desenvolver um sistema complexo, o domínio deve ser o foco. Por isso, ele é a camada central dos padrões de arquitetura.
+
+Web, frameworks e mecanismos de persistência (como bancos de dados) são meros detalhes. São ferramentas para executar suas regras de negócio.
+
+Executar a sua aplicação pela CLI (command-line interface) deve ser tão fácil quanto através de uma API (Application Programming Interface). O mesmo vale para uma interface Web.
+
+O conceito de modelarmos a nossa aplicação pensando primeiramente no domínio é chamado de Domain Driven Design, ou design orientado a domínio.
+
+Munidos desta mentalidade, podemos garantir uma melhor manutenibilidade e extensibilidade de nosso projeto.
+
+Qual o objetivo da utilização de classes service? Representar uma classe que executa alguma ação que não pertence a nenhuma entidade ou VO.
+As nossas regras de negócio devem ficar nas entidades e VOs, mas nem sempre isso faz sentido. Quando precisamos executar alguma ação que não faça parte de nenhuma entidade nem de um VO, podemos utilizar uma classe Service.
+
+O conceito de classes Services e mais especifico Domain, Application e Infrastructure Services
+Domain Services são classes que representam uma ação entre mais de uma entidade.
+Application Services controlam o fluxo de alguma regra em nossa aplicação.
+Infrastructure Services são implementações de interfaces presentes nas camadas de domínio ou de aplicação.

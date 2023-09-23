@@ -1,6 +1,6 @@
 // Modelando a classe Aluno
 
-package escola;
+package br.com.alura.escola.dominio.aluno;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,16 +11,23 @@ public class Aluno {
     
     private CPF cpf; // segue padrao entidade pois eh um atributo unico
     private String nome;
-    private Email email; 
+    private Email email;
+    private String senha;
     private List<Telefone> telefones  = new ArrayList<>();
+
+    public Aluno(CPF cpf, String nome, Email email) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.email = email;
+    }
 
     public void adicionarTelefone (String ddd, String numero){
         this.telefones.add(new Telefone(ddd, numero));
 
     }
 
-    public CPF getCpf() {
-        return cpf;
+    public String getCpf() {
+        return cpf.getNumero();
     }
 
     public void setCpf(CPF cpf) {
@@ -35,8 +42,9 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public Email getEmail() {
-        return email;
+    public String getEmail() {
+        return email.getEndereco();
+
     }
 
     public void setEmail(Email email) {
